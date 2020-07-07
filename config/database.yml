@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  port: 5433
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  # database: tfc_live
+  # database: tfc_live_sale
+  # database: tfc_live_19_12
+  # database: today_db
+  # database: today_db_feb_2020 # Mailchimp data
+  database: spree_test_dev
+test:
+  <<: *default
+  database: spree_test
+
+staging:
+  <<: *default
+  database: spree_test_staging
+
+production:
+  <<: *default
+  database: spree_test_prod
